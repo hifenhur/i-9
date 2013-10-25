@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inove</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render partial:'/layouts/header' if current_user %>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<%= yield %>
+	</div>
+</body>
+	<% unless current_user %>
+		<style type="text/css">
+			body{
+				background-color: #FFFEE9;
+			}
+		</style>
+	<% end %>
+</html>

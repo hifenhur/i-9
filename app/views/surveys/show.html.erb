@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<%= link_to (t 'Edit'), edit_survey_path(@survey) %> |
+<%= link_to (t 'Back'), surveys_path %>
+
+<p>
+  <strong><%= (t 'title') %>:</strong>
+  <%= @survey.title %>
+</p>
+
+<p>
+  <strong><%= (t 'description') %>:</strong>
+  <%= @survey.description %>
+</p>
+
+<p>
+  <strong><%= (t 'file') %>:</strong>
+  <%= @survey.file.url %>
+</p>
+
+
+<%= form_for(@survey_version, multipart: true) do |f| %>
+  <% if @survey_version.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey_version.errors.count, "error") %> prohibited this survey_version from being saved:</h2>
+
+      <ul>
+      <% @survey_version.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :survey_id %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :file %><br>
+    <%= f.file_field :file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

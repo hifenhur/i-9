@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: inove_development
+  pool: 5
+  username: postgres
+  password: numero04
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: inove_test
+  pool: 5
+  username: postgres
+  password: numero04
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: inove_production
+  pool: 5
+  username: postgres
+  password: numero04

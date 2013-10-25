@@ -1,0 +1,50 @@
+<%= javascript_include_tag "http://code.highcharts.com/highcharts.js", "chartkick" %>
+
+<p id="notice"><%= notice %></p>
+<table class='table'>
+
+<tr>
+  <th><%= t 'name'%>:</th>
+  <td><%= @survey_version.name %></td>
+</tr>
+
+<tr>
+  <th><%= t 'survey'%>:</th>
+  <td><%= link_to @survey_version.survey.title , survey_path(@survey_version.survey) %></td>
+</tr>
+
+<tr>
+  <th><%= t 'description'%>:</th>
+  <td><%= @survey_version.description %></td>
+</tr>
+
+<tr>
+  <th><%= t 'file'%>:</th>
+  <td><%= link_to 'Download',@survey_version.file.url %></td>
+</tr>
+
+</table>
+<%= link_to 'Edit', edit_survey_version_path(@survey_version) %> |
+<%= link_to 'Back', survey_versions_path %>
+<% @survey_version.questions.each do |question| %>
+	<li class="question-li">
+		<a href="javascript:void(0)"><%= question.description %></a>
+		<div class="question-answers" style='display: none'>
+			<table class="table table-bordered" >
+			<% Answer.distinct(:answer).where('question_id = ?', question.id).group(:answer).count.each do |k, v| %>
+				<tr>
+					<th><%= k %></th>
+					<td><%= v %></td>
+				</tr>
+			<% end %>
+			</table>
+			<%= column_chart question.answers_count %>
+		</div>
+	</li>
+<% end %>
+
+<script type="text/javascript">
+$('.question-li a').click(function(){
+	$(this).next().toggle();
+})
+</script>

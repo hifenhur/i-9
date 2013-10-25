@@ -1,0 +1,33 @@
+<h1>Listing survey_versions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Survey</th>
+      <th>Description</th>
+      <th>File</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @survey_versions.each do |survey_version| %>
+      <tr>
+        <td><%= survey_version.name %></td>
+        <td><%= survey_version.survey %></td>
+        <td><%= survey_version.description %></td>
+        <td><%= survey_version.file %></td>
+        <td><%= link_to 'Show', survey_version %></td>
+        <td><%= link_to 'Edit', edit_survey_version_path(survey_version) %></td>
+        <td><%= link_to 'Destroy', survey_version, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Survey version', new_survey_version_path %>

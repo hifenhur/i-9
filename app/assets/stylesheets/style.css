@@ -1,0 +1,178 @@
+.left-board-map{
+    position: fixed;
+    z-index: 9999;
+    width: 260px;
+    background-color: black;
+    height: 100%;
+    margin-top: -10px;
+}
+a:hover {
+    text-decoration: inherit;
+}
+.page-header {
+    height: 79px;
+}
+#logo {
+    float: left;
+}
+#login {
+    float: right;
+}
+#login-form {
+    background: none repeat scroll 0 0 white;
+    border-radius: 4px 4px 4px 4px;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    right: 4px;
+    top: 50px;
+}
+#login-form > a {
+    float: right;
+    margin: 7px;
+}
+#login-form > a > img {
+    border-radius: 3px 3px 3px 3px;
+}
+.login_path_form {
+    margin: auto;
+    width: 209px;
+}
+.wrapper {
+    margin-top: 10px;
+}
+.alert {
+    background-color: rgba(2, 2, 2, 0.4);
+    border-radius: 13px 13px 13px 13px;
+    color: white;
+    margin: 18px 0;
+    min-height: 36px;
+    padding: 14px;
+    position: fixed;
+    right: 132px;
+    top: 41px;
+}
+.curso_tab > a {
+    background: none repeat scroll 0 0 rgb(236, 248, 249);
+    color: rgb(173, 29, 40);
+    display: block;
+    margin: 2px 0;
+    padding: 20px;
+    width: 142px;
+}
+li {
+    list-style: none outside none;
+}
+ul.disciplina_tab {
+    margin: -64px 0 0 185px;
+    position: absolute;
+}
+.disciplina_tab a {
+    background: none repeat scroll 0 0 rgb(255, 255, 255);
+    box-shadow: 2px 2px 10px black;
+    color: rgb(173, 29, 40);
+    display: block;
+    margin: 2px 0;
+    padding: 20px;
+    width: 235px;
+}
+.disciplina_tab a:hover {
+    color: rgb(60, 185, 198);
+}
+.curso_tab > a:hover {
+    background: none repeat scroll 0 0 rgb(173, 29, 40);
+    color: rgb(255, 255, 255);
+}
+.reverse {
+    background: none repeat scroll 0 0 rgb(173, 29, 40) !important;
+    color: rgb(255, 255, 255) !important;
+}
+.areas-div {
+    text-align: center;
+}
+.areas-div h1 {
+    font-size: 41px;
+}
+.home-header {
+    background: url("/assets/bg.jpg") repeat-x scroll 0 0 transparent;
+    color: white;
+    text-align: center;
+}
+.area-header {
+    background: url("/assets/area-bg.jpg") no-repeat scroll 0 0 / 100% auto darkseagreen;
+}
+.span3.disciplina-tabs > h2 {
+    border-bottom: 1px solid;
+}
+.media-active {
+    background: none repeat scroll 0 0 rgb(0, 114, 230);
+    color: white;
+}
+.media-active h4 {
+    color: white;
+}
+.curso-span .pull-left {
+    margin: 10px;
+}
+.search-query.disciplina-search {
+    margin-bottom: 12px;
+    width: 182px;
+}
+.area-div:hover {
+    background: none repeat scroll 0 0 black;
+    color: white;
+    transition: all 0.4s ease 0s;
+}
+.area-div {
+    transition: all 0.4s ease 0s;
+}
+.disciplina-row .btn {
+    color: black;
+    width: 181px;
+}
+.media.curso-span {
+    margin-left: 12px;
+}
+.header-disciplina h1 {
+    text-decoration: underline;
+}
+.tutorial-li.texto {
+    background: none repeat scroll 0 0 beige;
+}
+.body-disciplina {
+    margin-top: 36px;
+}
+.home-body {
+    background: none repeat scroll 0 0 beige;
+}
+.invisivel {
+    display: none;
+}
+.mostrar-areas {
+    position: relative;
+    top: -61px;
+}
+.estude-header {
+    background-color: rgba(0, 60, 167, 0.48);
+    color: white;
+}
+.navbar-search{
+    margin: auto;
+}
+
+.navbar-search .search-query {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    
+}
+.map-house-window{
+    width: 200px;
+}
+
+
+
+.login_home{
+    margin: auto;
+    width: 200px
+}

@@ -1,0 +1,25 @@
+<h1>Documentos</h1>
+
+<form data-remote="true" >
+	<input name="q[name_cont]" class="search pull-right" type"search" placeholder="Pesquisa" onkeyup="$('form').submit()">
+</form>
+
+<br>
+<br>
+
+<table class="table bordered-table">
+  <tr>
+    <th>Nome</th>
+    <th>Criado</th>
+    <th>Atualizado</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+	<%= render @documents %>
+
+</table>
+
+<br />
+
+<%= link_to 'Novo Documento', new_document_path %>

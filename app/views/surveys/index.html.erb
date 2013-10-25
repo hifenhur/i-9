@@ -1,0 +1,29 @@
+<h1>Questionarios</h1>
+
+<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th><%= t 'title' %></th>
+      <th><%= t 'description' %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= survey.title %></td>
+        <td><%= survey.description %></td>
+        <td><%= link_to (t 'Show'), survey %></td>
+        <td><%= link_to (t 'Edit'), edit_survey_path(survey) %></td>
+        <td><%= link_to (t 'Destroy'), survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Survey', new_survey_path %>
