@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'newrelic_rpm'
 gem 'devise'
 gem 'carrierwave'
 gem 'ransack'
@@ -46,4 +47,3 @@ end
 
 
 
-ruby "2.0.0"
