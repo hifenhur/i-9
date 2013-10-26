@@ -46,4 +46,4 @@ group :development do
 end
 
 
-
+ruby '2.0.0'
