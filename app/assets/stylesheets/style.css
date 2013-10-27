@@ -176,3 +176,7 @@ ul.disciplina_tab {
     margin: auto;
     width: 200px
 }
+
+.display-toggle{
+    display:none;
+}

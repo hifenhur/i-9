@@ -1,54 +1,100 @@
 <p id="notice"><%= notice %></p>
-<%= link_to (t 'Edit'), edit_survey_path(@survey) %> |
-<%= link_to (t 'Back'), surveys_path %>
-
-<p>
-  <strong><%= (t 'title') %>:</strong>
+<div class="pull-right">
+  <form>
+  <%= select_tag "versão", options_from_collection_for_select(@survey.survey_versions, "id", "name"),:include_blank => true  %>
+  </form>
+  <%= link_to (t 'Edit'), edit_survey_path(@survey), class: 'btn btn-primary btn-lg' %> |
+  <%= link_to (t 'Back'), surveys_path, class: 'btn btn-primary btn-lg' %> |
+  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Adcionar Nova Versão</a>
+</div>
+<h1>
   <%= @survey.title %>
-</p>
+</h1>
 
 <p>
   <strong><%= (t 'description') %>:</strong>
   <%= @survey.description %>
 </p>
 
-<p>
-  <strong><%= (t 'file') %>:</strong>
-  <%= @survey.file.url %>
-</p>
-
-
-<%= form_for(@survey_version, multipart: true) do |f| %>
-  <% if @survey_version.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey_version.errors.count, "error") %> prohibited this survey_version from being saved:</h2>
-
-      <ul>
-      <% @survey_version.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<h2>Versão atual(v. <%= @last_survey_version.name %>) </h2>
+<% @last_survey_version.questions.each do |question| %>
+  <li class="question-li">
+    <a href="javascript:void(0)"><%= question.description %></a>
+    <div class="question-answers" style='display: none'>
+      <table class="table table-bordered" >
+      <% Answer.distinct(:answer).where('question_id = ?', question.id).group(:answer).count.sort_by{|k,v| v}.each do |k, v| %>
+        <tr>
+          <th><%= k %></th>
+          <td><%= v %></td>
+        </tr>
       <% end %>
-      </ul>
+      </table>
+      <%= column_chart question.answers_count.sort_by{|k,v| v} %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :survey_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :file %><br>
-    <%= f.file_field :file %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </li>
 <% end %>
 
+<script type="text/javascript">
+$('.question-li a').click(function(){
+  $(this).next().toggle();
+})
+</script>
 
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for(@survey_version, multipart: true) do |f| %>
+            <% if @survey_version.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@survey_version.errors.count, "error") %> prohibited this survey_version from being saved:</h2>
+
+                <ul>
+                <% @survey_version.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :name, (t 'name') %>
+              <%= f.text_field :name %>
+            </div>
+            <div class="field">
+              <%= f.hidden_field :survey_id %>
+            </div>
+            <div class="field">
+              <%= f.label :description, (t 'description') %>
+              <%= f.text_area :description %>
+            </div>
+            <div class="field">
+              <%= f.label :file, (t 'file') %>
+              <%= f.file_field :file %>
+            </div>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary submit-form">Criar Versão</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <script type="text/javascript">
+  $('.submit-form').click(function(){
+    $('.new_survey_version').submit();
+    $('.modal-body').html("<h1 style='text-align:center'> Enviando...</h1>")
+    $('.modal-header').remove();
+    $('.modal-footer').remove();
+  })
+  </script>
