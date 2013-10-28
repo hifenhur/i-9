@@ -9,7 +9,11 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   def show
     @survey_version = @survey.survey_versions.build
-    @last_survey_version = @survey.survey_versions.order('created_at desc').first
+    @last_survey_version = if params[:survey_version]
+      SurveyVersion.find(params[:survey_version])
+    else
+      @survey.survey_versions.order('created_at desc').first
+    end
   end
 
   # GET /surveys/new

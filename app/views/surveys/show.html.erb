@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="pull-right">
-  <form>
-  <%= select_tag "versão", options_from_collection_for_select(@survey.survey_versions, "id", "name"),:include_blank => true  %>
+  <form id='version'>
+  <%= select_tag "versão", options_from_collection_for_select(@survey.survey_versions, "id", "name"), name: 'survey_version', class:'select_version', :include_blank => true %>
   </form>
+  <script type="text/javascript">
+  $('.select_version').change(function(){
+    $('#version').submit();
+  });
+  </script>
   <%= link_to (t 'Edit'), edit_survey_path(@survey), class: 'btn btn-primary btn-lg' %> |
   <%= link_to (t 'Back'), surveys_path, class: 'btn btn-primary btn-lg' %> |
   <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Adcionar Nova Versão</a>
