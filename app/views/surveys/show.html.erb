@@ -27,10 +27,10 @@
     <a href="javascript:void(0)"><%= question.description %></a>
     <div class="question-answers" style='display: none'>
       <table class="table table-bordered" >
-      <% Answer.distinct(:answer).where('question_id = ?', question.id).group(:answer).count.sort_by{|k,v| v}.each do |k, v| %>
+      <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
         <tr>
           <th><%= k %></th>
-          <td><%= v %></td>
+          <td><%= v %>%</td>
         </tr>
       <% end %>
       </table>

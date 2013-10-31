@@ -12,10 +12,16 @@
 class Question < ActiveRecord::Base
   belongs_to :survey
   has_many :answers
+  attr_accessor :hash
 
 
   def answers_count
-  	Answer.distinct(:answer).where('question_id = ?', self.id).group(:answer).count
+  	@hash = Answer.distinct(:answer).where('question_id = ?', self.id).group(:answer).count
+
+  	@hash.each do |k, v|
+		@hash[k] = ((v*100)/@hash.values.sum)
+	end
+
   end
 
 end
