@@ -182,7 +182,7 @@ ul.disciplina_tab {
 }
 .background {
 width: 100%;
-background: red;
+background: slategray;
 height: 400px;
 position: absolute;
 z-index: -99;
