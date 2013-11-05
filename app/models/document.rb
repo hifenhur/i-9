@@ -35,4 +35,7 @@ class Document < ActiveRecord::Base
 	  end
 	end
 	
+	def to_s
+		self.name
+	end
 end

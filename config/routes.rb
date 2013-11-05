@@ -1,4 +1,5 @@
 Inove::Application.routes.draw do
+  get "home/index"
   resources :survey_versions
 
   resources :questions
@@ -9,5 +10,5 @@ Inove::Application.routes.draw do
 
   resources :documents
   resources :maps
-  root to: 'maps#index'
+  root to: 'home#index'
 end

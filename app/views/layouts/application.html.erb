@@ -7,19 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render partial:'/layouts/header' if current_user %>
+	<%= render partial:'/layouts/header' %>
 	<br>
 	<br>
 	<br>
-	<div class="container">
+	<% if params[:controller] == 'home' %>
+		<div class="background"></div>
+	<% end %>
+	<div class="container wrapper">
 		<%= yield %>
 	</div>
+
 </body>
-	<% unless current_user %>
-		<style type="text/css">
-			body{
-				background-color: #FFFEE9;
-			}
-		</style>
-	<% end %>
+	
 </html>

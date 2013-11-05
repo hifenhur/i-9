@@ -1,4 +1,5 @@
 class MapsController < ApplicationController
+  skip_before_filter :authenticate_user!, only:[:index, :show]
   # GET /documents
   # GET /documents.json
   def index

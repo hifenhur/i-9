@@ -8,9 +8,9 @@
     $('#version').submit();
   });
   </script>
-  <%= link_to (t 'Edit'), edit_survey_path(@survey), class: 'btn btn-primary btn-lg' %> |
+  <%= admin_link (t 'Edit'), edit_survey_path(@survey), class: 'btn btn-primary btn-lg' %> |
   <%= link_to (t 'Back'), surveys_path, class: 'btn btn-primary btn-lg' %> |
-  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Adcionar Nova Versão</a>
+  <%= admin_link 'Adcionar Nova Versão', '#myModal', class: 'btn btn-primary btn-lg', 'data-toggle' => 'modal' %>
 </div>
 <h1>
   <%= @survey.title %>
@@ -20,25 +20,25 @@
   <strong><%= (t 'description') %>:</strong>
   <%= @survey.description %>
 </p>
-
-<h2>Versão atual(v. <%= @last_survey_version.name %>) </h2>
-<% @last_survey_version.questions.each do |question| %>
-  <li class="question-li">
-    <a href="javascript:void(0)"><%= question.description %></a>
-    <div class="question-answers" style='display: none'>
-      <table class="table table-bordered" >
-      <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
-        <tr>
-          <th><%= k %></th>
-          <td><%= v %>%</td>
-        </tr>
-      <% end %>
-      </table>
-      <%= column_chart question.answers_count.sort_by{|k,v| v} %>
-    </div>
-  </li>
+<% if @last_survey_version %>
+  <h2>Versão atual(v. <%= @last_survey_version.name  %>) </h2>
+  <% @last_survey_version.questions.each do |question| %>
+    <li class="question-li">
+      <a href="javascript:void(0)"><%= question.description %></a>
+      <div class="question-answers" style='display: none'>
+        <table class="table table-bordered" >
+        <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
+          <tr>
+            <th><%= k %></th>
+            <td><%= v %>%</td>
+          </tr>
+        <% end %>
+        </table>
+        <%= column_chart question.answers_count.sort_by{|k,v| v} %>
+      </div>
+    </li>
+  <% end %>
 <% end %>
-
 <script type="text/javascript">
 $('.question-li a').click(function(){
   $(this).next().toggle();

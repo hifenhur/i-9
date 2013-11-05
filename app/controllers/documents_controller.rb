@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  skip_before_filter :authenticate_user!, only:[:index, :show]
   # GET /documents
   # GET /documents.json
   def index
@@ -14,8 +15,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
-    @document = Survey.last
-    @document = Document.open_spreadsheet(@document.file.url)
+    @document = Document.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @document }

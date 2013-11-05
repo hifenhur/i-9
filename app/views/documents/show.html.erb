@@ -1,12 +1,2 @@
-<table class="table table-bordered">
-<% @document.row(1).each do |item| %>
-	<th><%=item%></th>
-<%end%>
-<% @document.each_with_index do |r, i| %>
-<tr>
-	<% @document.row(i+2).each do |x|%>
-		<td><%=  x.to_s  %></td>
-	<%end%>
-</tr>
-<%end%>
-</table>
+<h1><%= @document %></h1>
+<%= link_to "Download", @document.file.url %>

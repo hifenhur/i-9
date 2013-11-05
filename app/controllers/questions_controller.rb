@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions

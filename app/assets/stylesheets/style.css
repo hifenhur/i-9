@@ -180,3 +180,11 @@ ul.disciplina_tab {
 .display-toggle{
     display:none;
 }
+.background {
+width: 100%;
+background: red;
+height: 400px;
+position: absolute;
+z-index: -99;
+margin-top: -13px;
+}

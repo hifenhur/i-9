@@ -1,4 +1,5 @@
 class SurveyVersionsController < ApplicationController
+  skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_survey_version, only: [:show, :edit, :update, :destroy]
 
   # GET /survey_versions
