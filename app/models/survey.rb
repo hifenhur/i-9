@@ -8,6 +8,7 @@
 #  file        :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  estudo_id   :integer
 #
 
 class Survey < ActiveRecord::Base

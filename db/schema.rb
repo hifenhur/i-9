@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025170457) do
+ActiveRecord::Schema.define(version: 20131118213709) do
 
   create_table "answers", force: true do |t|
     t.string   "answer"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20131025170457) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "survey_id"
+    t.integer  "estudo_id"
+  end
+
+  create_table "estudos", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "maps", force: true do |t|
@@ -36,6 +45,18 @@ ActiveRecord::Schema.define(version: 20131025170457) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "points", force: true do |t|
+    t.integer  "map_id"
+    t.string   "image"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "longitude"
+    t.float    "latitude"
+  end
+
+  add_index "points", ["map_id"], name: "index_points_on_map_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.text     "description"
@@ -66,6 +87,7 @@ ActiveRecord::Schema.define(version: 20131025170457) do
     t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "estudo_id"
   end
 
   create_table "users", force: true do |t|

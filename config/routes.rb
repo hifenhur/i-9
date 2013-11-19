@@ -1,4 +1,6 @@
 Inove::Application.routes.draw do
+  resources :estudos
+
   get "home/index"
   resources :survey_versions
 
@@ -9,6 +11,8 @@ Inove::Application.routes.draw do
   devise_for :users
 
   resources :documents
-  resources :maps
+  resources :maps do
+  	resources :points
+  end
   root to: 'home#index'
 end

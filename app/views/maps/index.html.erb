@@ -1,31 +1,29 @@
-<h1 class="page-header">Visualizar Mapa</h1>
-<div class="features row">
-  <div class="span8">
-    <div class="well">
-      <p><img src="/assets/mapa.jpg" width="100%" ></p>
-    </div>
-  </div>
-  <div class="span4">
-    <div class="well">
-      <table class="table">
-        <thead>
-          <tr>
-            <input type="search" placeholder="pesquisar mapas" width="100%">
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Brasil</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jake</td>
-          </tr>
-        </tbody>
-      </table>
-      <a class="btn btn-success btn-block">Button Text</a>
-      <p></p>
-    </div>
-  </div>
-</div>
+<h1>Listing maps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maps.each do |map| %>
+      <tr>
+        <td><%= map.name %></td>
+        <td><%= map.image %></td>
+        <td><%= link_to 'Show', map %></td>
+        <td><%= link_to 'Edit', edit_map_path(map) %></td>
+        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Map', new_map_path %>

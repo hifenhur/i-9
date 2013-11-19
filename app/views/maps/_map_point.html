@@ -1,0 +1,20 @@
+<script type="text/javascript">
+ <% @map.points.each do |point|%>
+    mark = L.marker({
+        // this feature is in the GeoJSON format: see geojson.org
+        // for the full specification
+        lat: <%= point.latitude %>,
+        lng: <%= point.longitude%>,
+    })
+    mark.options.title = '<%= point.title %>'
+    map.addLayer(mark)
+
+
+    
+<%end%>
+
+</script>
+
+
+
+

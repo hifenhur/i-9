@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: survey_versions
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  survey_id   :integer
+#  description :text
+#  file        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class SurveyVersion < ActiveRecord::Base
   belongs_to :survey
   has_many :questions

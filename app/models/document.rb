@@ -5,8 +5,10 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  file       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  created_at :datetime
+#  updated_at :datetime
+#  survey_id  :integer
+#  estudo_id  :integer
 #
 
 class Document < ActiveRecord::Base

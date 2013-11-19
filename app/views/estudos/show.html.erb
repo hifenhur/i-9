@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @estudo.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @estudo.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @estudo.image %>
+</p>
+
+<%= link_to 'Edit', edit_estudo_path(@estudo) %> |
+<%= link_to 'Back', estudos_path %>

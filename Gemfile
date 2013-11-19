@@ -45,5 +45,7 @@ group :development do
 	gem 'commands'
 end
 
+gem 'rack-cors'
+gem "jquery-fileupload-rails"
 
 #ruby '2.0.0'
