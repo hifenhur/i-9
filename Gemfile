@@ -40,6 +40,7 @@ gem "acts-as-taggable-on", "~> 2.4.1"
 gem 'roo'
 gem 'lazy_high_charts'
 gem 'chartkick'
+gem 'mini_magick'
 
 group :development do
 	gem 'commands'
@@ -47,5 +48,6 @@ end
 
 gem 'rack-cors'
 gem "jquery-fileupload-rails"
-
+gem 'remotipart'
+gem 'fancybox2-rails', '~> 0.2.4'
 #ruby '2.0.0'

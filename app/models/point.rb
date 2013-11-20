@@ -11,6 +11,6 @@
 #
 
 class Point < ActiveRecord::Base
-  
+  mount_uploader :image, DocumentUploader
   belongs_to :map
 end

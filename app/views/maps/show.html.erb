@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>A Simple Map</title>
+  
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  
+  <style>
+    #map { position:absolute; top:60px; bottom:0; width:100%; left: 0; }
+  </style>
+</head>
+<body>
+<div id='map'></div>
+<script>
+var map = L.mapbox.map('map', 'hifenhur.gb2cc0e3').setView([0.004913806909266322, 0.006780624389648437], 17);
+</script>
+</body>
+</html>
 
-<p>
-  <strong>Name:</strong>
-  <%= @map.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @map.image %>
-</p>
-
-<%= link_to 'Edit', edit_map_path(@map) %> |
-<%= link_to 'Back', maps_path %>
+<%= render partial: 'map_point' %>

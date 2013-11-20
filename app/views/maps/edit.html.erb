@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/dist/leaflet.draw.css" />
   <!--[if lte IE 8]><link rel="stylesheet" href="/dist/leaflet.draw.ie.css" /><![endif]-->
 
-  <script src="/libs/leaflet-src.js"></script>
 
   <script src="/src/Leaflet.draw.js"></script>
 
@@ -36,11 +35,10 @@
   <script src="/src/edit/handler/EditToolbar.Delete.js"></script>
 </head>
 <body>
-  <div id="map" style="width: 100%; height: 600px; border: 1px solid #ccc"></div>
+  <%= render partial: 'form' %>
+  <div id="map" style="width: 100%; height: 700px; border: 1px solid #ccc"></div>
   <script>
-    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
-      cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18}),
-      map = new L.Map('map', {layers: [cloudmade], center: new L.LatLng(-37.7772, 175.2756), zoom: 18 });
+    var map = L.mapbox.map('map', 'hifenhur.gb2cc0e3').setView([0.004913806909266322, 0.006780624389648437], 17);
 
     var drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
@@ -59,7 +57,6 @@
       },
       edit: {
         featureGroup: drawnItems,
-        remove: true
       }
     });
     
@@ -94,11 +91,6 @@
             $("#myModal").modal('show')
             $("#myModal .longitude").val(e.layer._latlng.lng);
             $("#myModal .latitude").val(e.layer._latlng.lat);
-            e.layer.title = "Title"
-            e.layer.image = "nonono"
-            e.layer._popup._content = "<h1>"+e.layer.title+"</h1>"+
-            "<img src='"+e.layer.image+"'>"
-            identities.push(e.layer)
             actual_point = e.layer
         }
 
@@ -125,7 +117,8 @@
           <h4 class="modal-title">Escolher Imagem</h4>
         </div>
         <div class="modal-body">
-          <form action="/maps/<%= @map.id %>/points.js" method="post" data-remote="true">
+
+          <form action="/maps/<%= @map.id %>/points.js" method="post" data-remote="true" enctype="multipart/form-data">
             <input type="text" name="point[longitude]" editable="false" class="longitude">
             <input type="text" name="point[latitude]" editable="false" class="latitude">
             <input type="hidden" name="point[map_id]" id="point-id" value='<%= @map.id%>'>
@@ -156,4 +149,5 @@ $('.submit-form').click(function(){
 
 
 <%= render partial: 'map_point' %>
+
 

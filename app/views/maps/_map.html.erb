@@ -1,0 +1,9 @@
+<div class="map-buttom" >
+    <div class="options">
+      <%= admin_link image_tag('pencil.png'), edit_map_path(map), title: 'editar' %>
+      <%= link_to image_tag('eye.png'), map_path(map), title: 'visualizar' %>
+    </div>
+    <img src="<%= map.image.thumb %>">
+    <spam><%= map.name %></spam>
+
+  </div>

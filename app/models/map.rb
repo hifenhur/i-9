@@ -10,5 +10,6 @@
 #
 
 class Map < ActiveRecord::Base
+	mount_uploader :image, MapUploader
 	has_many :points
 end

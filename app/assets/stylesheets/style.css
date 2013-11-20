@@ -192,3 +192,44 @@ margin-top: -13px;
 background: aliceblue;
 transition: 0.3s all ease;
 }
+.map-buttom {
+    background: none repeat scroll 0 0 rgb(255, 215, 0);
+    border: 1px solid rgb(128, 128, 128);
+    color: rgb(0, 0, 0);
+    display: block;
+    text-align: center;
+    width: 250px;
+}
+
+.map-buttom .options {
+    background: none repeat scroll 0 0 rgba(100, 100, 100, 0.2);
+    height: 270px;
+    position: absolute;
+    width: 250px;
+    display: none;
+}
+
+.map-buttom > img {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+.map-buttom:hover .options{
+    display: block;
+}
+
+.options > a {
+    background: none repeat scroll 0 0 rgb(255, 255, 255);
+    border-radius: 34px;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    font-size: 30px;
+    opacity: 0.74;
+    padding: 20px;
+    position: relative;
+    top: 36%;
+}
+.options > a:hover{
+    background: yellow;
+    opacity: 0.6
+}

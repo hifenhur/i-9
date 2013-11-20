@@ -3,6 +3,7 @@ class PointsController < ApplicationController
 
   def create
     @point = Point.new(point_params)
+    @map = Map.find(point_params[:map_id])
     if @point.save
       respond_to do |format|
         format.js
@@ -22,7 +23,7 @@ class PointsController < ApplicationController
 
 
   def point_params
-    params.require(:point).permit(:longitude, :latitude, :map_id, :title, :map_id)
+    params.require(:point).permit(:longitude, :latitude, :map_id, :title, :map_id, :image)
   end
 
 end
