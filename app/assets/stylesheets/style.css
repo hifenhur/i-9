@@ -181,12 +181,12 @@ ul.disciplina_tab {
     display:none;
 }
 .background {
-width: 100%;
-background: slategray;
-height: 400px;
-position: absolute;
-z-index: -99;
-margin-top: -13px;
+    width: 100%;
+    background: steelblue;
+    height: 400px;
+    position: absolute;
+    z-index: -99;
+    margin-top: -13px;
 }
 .links a:hover {
 background: aliceblue;
@@ -236,10 +236,17 @@ transition: 0.3s all ease;
 .question-li {
     border-top: 1px solid;
     margin: 10px;
+    text-transform: uppercase;
 }
 .question-li a{
     color: grey;
 }
-.question-li:hover{
-    
-};
+.question-li a:hover {
+    margin-left: 5px;
+    transition: 0.2s all ease;
+    color: black;
+    font-size: 16px;
+}
+a, h1, h2, h3, p{
+    text-transform: uppercase;
+}

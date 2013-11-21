@@ -28,11 +28,11 @@
 <br>
 <div class="maps-home row-fluid">
 	<div class="span4">
-		<h1>Ultimo Mapa</h1>
+		<h2>Ultimo Mapa</h2>
 		<%= render partial: '/maps/map', collection: Map.order('created_at').limit(1) %>
 	</div>
-	<div class="span4">
-		<h1>Ultimos Documentos</h1>
+	<div class="span8">
+		<h2>Ultimos Documentos</h2>
 		<table class="table">
 			<%@documents.each do |document|%>
 				<tr>
@@ -42,10 +42,7 @@
 			<% end %>
 		</table>
 	</div>
-	<div class="span4">
-		<h1>Ultimo Mapa</h1>
-		<%= render partial: '/maps/map', collection: Map.order('created_at').limit(1) %>
-	</div>
+	
 </div>
 
 
