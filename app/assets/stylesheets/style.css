@@ -233,3 +233,13 @@ transition: 0.3s all ease;
     background: yellow;
     opacity: 0.6
 }
+.question-li {
+    border-top: 1px solid;
+    margin: 10px;
+}
+.question-li a{
+    color: grey;
+}
+.question-li:hover{
+    
+};
