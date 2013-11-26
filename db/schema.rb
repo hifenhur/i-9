@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118213709) do
+ActiveRecord::Schema.define(version: 20131126005846) do
 
   create_table "answers", force: true do |t|
     t.string   "answer"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20131118213709) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "buttom_color"
   end
 
   create_table "maps", force: true do |t|
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 20131118213709) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "estudo_id"
+    t.string   "color"
   end
 
   create_table "users", force: true do |t|

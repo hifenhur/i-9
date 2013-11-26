@@ -250,3 +250,31 @@ transition: 0.3s all ease;
 a, h1, h2, h3, p{
     text-transform: uppercase;
 }
+.lateral-menu.span3 {
+    margin-top: 66px;
+    text-align: center;
+}
+.lateral-menu ul li {
+    border: 3px solid white;
+    width: 149px;
+    height: 111px;
+    background: #333366;
+    margin-top: 3px;
+}
+.lateral-menu li:hover {
+    opacity: 0.8;
+    color: white !important;
+    transition: 0.3s all ease;
+}
+.navbar-fixed-top {
+    z-index: 999999;
+}
+
+.lateral-menu h2 {
+color: white;
+font-size: 18px;
+line-height: 17px;
+max-width: 100%;
+margin: 11px;
+word-break: break-word;
+}

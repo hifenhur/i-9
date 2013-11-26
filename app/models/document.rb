@@ -13,7 +13,7 @@
 
 class Document < ActiveRecord::Base
    mount_uploader :file, DocumentUploader
-   belongs_to :survey
+   belongs_to :estudo
 
    def self.import(file)
 	  allowed_attributes = ["name", "file"]

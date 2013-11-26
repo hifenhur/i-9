@@ -15,6 +15,7 @@ class Survey < ActiveRecord::Base
 	has_many :questions, through: :survey_versions
 	has_many :survey_versions
 	has_one :document
+	belongs_to :estudo
 	mount_uploader :file, DocumentUploader
 	accepts_nested_attributes_for  :document
 
