@@ -1,31 +1,12 @@
-<h1>Listing estudos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @estudos.each do |estudo| %>
-      <tr>
-        <td><%= estudo.title %></td>
-        <td><%= estudo.description %></td>
-        <td><%= estudo.image %></td>
-        <td><%= link_to 'Show', estudo %></td>
-        <td><%= link_to 'Edit', edit_estudo_path(estudo) %></td>
-        <td><%= link_to 'Destroy', estudo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     <div class="map-buttom span3" >
+        <div class="options">
+          <%= admin_link image_tag('pencil.png'), edit_estudo_path(estudo), title: 'editar' %>
+          <%= link_to image_tag('eye.png'), estudo_path(estudo), title: 'visualizar', class: 'map-view img-thumbnail', height: '400px' %>
+        </div>
+        <img src="<%= estudo.image.thumb %>">
+        <spam><%= estudo.title %></spam>
+
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Estudo', new_estudo_path %>

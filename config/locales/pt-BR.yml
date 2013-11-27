@@ -1,4 +1,9 @@
 pt-BR:
+  brief_description: Breve Descrição
+  buttom_color: Cor do Botão
+  documents: Documentos
+  surveys: Questionarios
+  image: Imagem
   Back: Voltar
   Show: Ver
   Edit: Editar

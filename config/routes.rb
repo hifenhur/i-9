@@ -1,16 +1,20 @@
 Inove::Application.routes.draw do
-  resources :estudos
+  resources :estudos do
+    resources :documents
+    resources :surveys
+    
+  end
 
   get "home/index"
   resources :survey_versions
 
   resources :questions
 
-  resources :surveys
+  
 
   devise_for :users
 
-  resources :documents
+  
   resources :maps do
   	resources :points
   end

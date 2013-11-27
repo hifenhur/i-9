@@ -9,6 +9,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  estudo_id   :integer
+#  color       :string(255)
 #
 
 class Survey < ActiveRecord::Base

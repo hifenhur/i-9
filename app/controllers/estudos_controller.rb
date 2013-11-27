@@ -1,4 +1,5 @@
 class EstudosController < ApplicationController
+  skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_estudo, only: [:show, :edit, :update, :destroy]
 
   # GET /estudos
