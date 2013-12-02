@@ -27,17 +27,27 @@
 <fieldset>
 	<legend>Questionarios</legend>
 <table class="table table-bordered">
-	<tr>
-	  <th><%= (t 'documents') %></th>
-	  <td><%= @estudo.title %></td>
-	</tr>
 
-	<tr>
-	  <th><%= (t 'surveys') %></th>
-	  <td><%= @estudo.description %></td>
-	</tr>
+	<% @estudo.surveys.each do |survey| %>
+		<tr>
+		  <th><%= survey.title %></th>
+		  <td><%= survey.description %></td>
+		  <td><%= link_to('Gráficos', "/surveys/#{survey.id}") %></td>
+		</tr>
+	<% end %>
+
 
 </table>
+</fieldset>
+
+<fieldset>
+	<legend>Mapas</legend>
+
+
+	<%= render @estudo.maps %>
+
+
+
 </fieldset>
 <%= admin_link (t 'Edit'), edit_estudo_path(@estudo) %> |
 <%= admin_link (t 'Back'), estudos_path %>

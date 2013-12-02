@@ -11,5 +11,6 @@
 
 class Map < ActiveRecord::Base
 	mount_uploader :image, MapUploader
+	belongs_to :estudo
 	has_many :points
 end

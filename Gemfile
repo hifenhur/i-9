@@ -50,4 +50,6 @@ gem 'rack-cors'
 gem "jquery-fileupload-rails"
 gem 'remotipart'
 gem 'fancybox2-rails', '~> 0.2.4'
+gem 'carrierwave-dropbox'
+gem 'carrierwave-google_drive'
 #ruby '2.0.0'

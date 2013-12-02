@@ -1,13 +1,16 @@
 # encoding: utf-8
 
-class MapUploader < CarrierWave::Uploader::Base
+class MapUploader < CarrierWave::Uploader::GoogleDrive
+
+  google_login    'hifen99@gmail.com'
+  google_password 'numero04'
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :google_drive
   # storage :fog
 
   # Override the directory where uploaded files will be stored.

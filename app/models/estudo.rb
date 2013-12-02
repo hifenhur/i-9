@@ -13,6 +13,7 @@
 
 class Estudo < ActiveRecord::Base
 	mount_uploader :image, MapUploader
+	has_many :maps
 	has_many :surveys
 	has_many :documents
 end

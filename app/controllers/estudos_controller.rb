@@ -70,6 +70,6 @@ class EstudosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def estudo_params
-      params.require(:estudo).permit(:title, :description, :image)
+      params.require(:estudo).permit(:title, :description, :image, :buttom_color)
     end
 end
