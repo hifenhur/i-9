@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
-  encoding: unicode
+  encoding: utf8
   database: rails
   pool: 5
   username: rails
@@ -10,7 +10,7 @@ development:
 
 test:
   adapter: mysql2
-  encoding: unicode
+  encoding: utf8
   database: rails
   pool: 5
   username: rails
@@ -20,7 +20,7 @@ test:
 
 production:
   adapter: mysql2
-  encoding: unicode
+  encoding: utf8
   database: rails
   pool: 5
   username: rails
