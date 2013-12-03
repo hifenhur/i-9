@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+#gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -52,4 +52,5 @@ gem 'remotipart'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'carrierwave-dropbox'
 gem 'carrierwave-google_drive'
+gem 'mysql2'
 #ruby '2.0.0'

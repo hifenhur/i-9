@@ -1,23 +1,30 @@
 development:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
-  database: inove_development
+  database: rails
   pool: 5
-  username: postgres
-  password: numero04
+  username: rails
+  password: FPzJa1JOxL
+  reconnect: true
+  host: localhost
 
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
-  database: inove_test
+  database: rails
   pool: 5
-  username: postgres
-  password: numero04
+  username: rails
+  password: FPzJa1JOxL
+  reconnect: true
+  host: localhost
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
-  database: inove_development
+  database: rails
   pool: 5
-  username: postgres
-  password: numero04
+  username: rails
+  password: FPzJa1JOxL
+  reconnect: true
+  host: localhost
+
