@@ -2,10 +2,11 @@ Inove::Application.routes.draw do
   Mercury::Engine.routes
   resources :estudos do
     resources :documents
-    resources :surveys
     
   end
 
+  resources :surveys
+  
   get "home/index"
   resources :survey_versions
 
