@@ -288,3 +288,8 @@ word-break: break-word;
 .field textarea{
     height: 200px;
 }
+#option_button {
+display: table;
+position: relative;
+margin: 21px;
+}
