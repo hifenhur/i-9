@@ -1,4 +1,5 @@
 Inove::Application.routes.draw do
+  Mercury::Engine.routes
   resources :estudos do
     resources :documents
     resources :surveys
