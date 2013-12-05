@@ -293,3 +293,10 @@ display: table;
 position: relative;
 margin: 21px;
 }
+
+#top-image {
+height: 200px;
+background: url(/assets/ipe.jpg);
+background-size: 100% auto;
+background-color: #2185EB;
+}
