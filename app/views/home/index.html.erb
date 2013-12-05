@@ -4,10 +4,30 @@
 
 
 </div>
-<br>
-<br>
-<br>
+
 <div class="maps-home row-fluid">
+	<div class="span11">
+		<p>O Sistema de Informação Municipal de Saneamento é um projeto inovador que oferece a 
+
+		cidade de Portelândia um sistema de monitoramento regular da situação do saneamento.
+
+		Os indicadores de saneamento são uma importante ferramenta para o desenvolvimento local, 
+
+		proposto pela Fundação Nacional da Saúde (FUNASA) com o objetivo de avaliar e traçar metas, 
+
+		em busca de uma cidade sustentável. </p>
+
+		<p>
+		A participação dos portelandenses foi marcante e essencial durante todo o processo de 
+
+		construção da ferramenta, trazendo contribuições de diferentes atores que viviam em diversos 
+
+		locais e situações. Com o foco de perceber as expectativas (positivas e/ou negativas) que 
+
+		surgiam deste cenário e construir caminhos para garantir que toda a cidade e seu entorno 
+
+		fossem beneficiados.</p>
+	</div>
 	<div class="span4">
 		<h2>Ultimo Mapa</h2>
 		<%= render partial: '/maps/map', collection: Map.order('created_at').limit(1) %>
