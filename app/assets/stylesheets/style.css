@@ -196,9 +196,10 @@ transition: 0.3s all ease;
     background: none repeat scroll 0 0 rgb(255, 215, 0);
     border: 1px solid rgb(128, 128, 128);
     color: rgb(0, 0, 0);
-    display: block;
+    display: inline-block;
     text-align: center;
     width: 275px;
+    margin: 10px 25px;
 }
 
 .map-buttom .options {
@@ -248,16 +249,17 @@ transition: 0.3s all ease;
     color: black;
     font-size: 16px;
 }
-a, h1, h2, h3, p{
+a, h1, h2, h3{
     text-transform: uppercase;
 }
-.lateral-menu.span3 {
-    margin-top: 66px;
+
+.lateral-menu.span2 {
+    margin-top: 40px;
     text-align: center;
 }
 .lateral-menu ul li {
     border: 3px solid white;
-    width: 149px;
+
     height: 78px;
     background: #333366;
     margin-top: 3px;
@@ -299,4 +301,23 @@ height: 200px;
 background: url(/assets/ipe.jpg);
 background-size: 100% auto;
 background-color: #2185EB;
+}
+#big-wrapper {
+background: seashell;
+}
+
+#wrapper {
+background: white;
+min-height: 784px;
+padding: 45px 66px 20px 20px;
+}
+
+.popup img {
+max-width: 283px !important;
+}
+
+#footer {
+background: #0055A8;
+height: 200px;
+color: white;
 }

@@ -1,10 +1,10 @@
 Inove::Application.routes.draw do
   
   resources :estudos do
-    resources :documents
+    
     
   end
-
+  resources :documents
   resources :surveys
 
   get "home/index"

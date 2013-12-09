@@ -11,6 +11,7 @@ class EstudosController < ApplicationController
   # GET /estudos/1
   # GET /estudos/1.json
   def show
+    @document = @estudo.documents.build
   end
 
   # GET /estudos/new

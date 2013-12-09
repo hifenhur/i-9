@@ -1,6 +1,6 @@
 <%= admin_link 'Adcionar Novo Estudo','/estudos/new', class: 'btn btn-primary btn-lg', id: 'option_button' %>
     <% @estudos.each do |estudo| %>
-     <div class="map-buttom span3" >
+     <div class="map-buttom " >
         <div class="options">
           <%= admin_link image_tag('pencil.png'), edit_estudo_path(estudo), title: 'editar' %>
           <%= link_to image_tag('eye.png'), estudo_path(estudo), title: 'visualizar', class: 'map-view img-thumbnail', height: '400px' %>

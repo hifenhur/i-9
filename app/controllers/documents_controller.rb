@@ -41,11 +41,11 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-    @document = Document.new(params[:document].permit([:file, :name]))
+    @document = Document.new(params[:document].permit([:file, :name, :estudo_id]))
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        format.html { redirect_to @document.estudo, notice: 'Document was successfully created.' }
         format.json { render json: @document, status: :created, location: @document }
       else
         format.html { render action: "new" }

@@ -8,25 +8,30 @@
 </head>
 <body>
 	<%= render partial:'/layouts/header' %>
-	
-	<div class="lateral-menu span3">
-		<ul>
-			<% Estudo.all.each do |estudo| %>
-			<a href="/estudos/<%= estudo.id%>">
-				<li style="background: <%= estudo.buttom_color%>">
-					<h2><%= estudo.title %></h2>
-				</li>
-			</a>
-			<% end %>
-	    </ul>
+	<div class="row-fluid" id="big-wrapper">
+		<div class="lateral-menu span2">
+			<ul>
+				<% Estudo.all.each do |estudo| %>
+				<a href="/estudos/<%= estudo.id%>">
+					<li style="background: <%= estudo.buttom_color%>">
+						<h2><%= estudo.title %></h2>
+					</li>
+				</a>
+				<% end %>
+		    </ul>
+		</div>
+		
+		<div class="span10 " id="wrapper">
+			<%= yield %>
+		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="span12">
-		<%= yield %>
-	</div>
+	<footer id="footer">
+		<div class="span3">
+			Todos os direitos reservados a Inove Consultoria
+		</div>
+        
+    </div>
+	</footer>
 
 </body>
 	

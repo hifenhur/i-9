@@ -18,10 +18,14 @@ class SurveyVersion < ActiveRecord::Base
   mount_uploader :file, DocumentUploader
   after_save :refresh_survey
 
-  def refresh_survey
-		excel_file = Document.open_spreadsheet(self.file.url)
-		create_questions(excel_file)
-		create_answers(excel_file)
+ 	def refresh_survey
+ 		begin
+			excel_file = Document.open_spreadsheet(self.file.url)
+			create_questions(excel_file)
+			create_answers(excel_file)
+		rescue => e
+			
+		end
 	end
 
 	def create_questions(excel_file)

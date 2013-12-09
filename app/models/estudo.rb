@@ -16,4 +16,8 @@ class Estudo < ActiveRecord::Base
 	has_many :maps
 	has_many :surveys
 	has_many :documents
+
+	def to_s
+		self.title
+	end
 end
