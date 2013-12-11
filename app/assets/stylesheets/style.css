@@ -259,8 +259,7 @@ a, h1, h2, h3{
 }
 .lateral-menu ul li {
     border: 3px solid white;
-
-    height: 78px;
+    height: 69px;
     background: #333366;
     margin-top: 3px;
 }
@@ -274,12 +273,12 @@ a, h1, h2, h3{
 }
 
 .lateral-menu h2 {
-color: white;
-font-size: 18px;
-line-height: 17px;
-max-width: 100%;
-margin: 11px;
-word-break: break-word;
+    color: white;
+    font-size: 13px;
+    line-height: 17px;
+    max-width: 100%;
+    margin: 11px;
+    word-break: break-word;
 }
 
 .field input, .field textarea {
@@ -320,4 +319,8 @@ max-width: 283px !important;
 background: #0055A8;
 height: 200px;
 color: white;
+}
+
+.nav-ico {
+width: 34px;
 }

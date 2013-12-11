@@ -1,28 +1,29 @@
-<h1>Questionarios</h1>
+<h1>Indicadores</h1>
 
-<table class='table '>
+<table class='table table-hover table-bordered'>
   <thead>
     <tr>
+      <th>Ver</th>
+      <% if current_user %>
+      <th>Editar</th>
+      <th>Deletar</th>
+      <% end %>
       <th><%= t 'title' %></th>
       <th><%= t 'description' %></th>
-      <th></th>
-      <% if current_user %>
-      <th></th>
-      <th></th>
-      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
-        <td><%= survey.title %></td>
-        <td><%= survey.description %></td>
-        <td><%= link_to (t 'Show'), survey %></td>
+        <td><%= link_to image_tag('search.png', width: 36), survey %></td>
         <% if current_user %>
         <td><%= link_to (t 'Edit'), edit_survey_path(survey) %></td>
         <td><%= link_to (t 'Destroy'), survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <td><%= survey.title %></td>
+        <td><%= survey.description %></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +31,4 @@
 
 <br>
 
-<%= admin_link 'New Survey', new_survey_path %>
+<%= admin_link 'Novo Indicador', new_survey_path %>
