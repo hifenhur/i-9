@@ -11,11 +11,13 @@
 
 
 </table>
-
+<div class="span10">
+<%= admin_link 'Adcionar Novo Documento', '#myModal', class: 'btn btn-primary ', 'data-toggle' => 'modal' %>
+</div>
 <% if @estudo.documents.count > 0 %>
   <fieldset>
     <legend>Documentos</legend>
-    <%= admin_link 'Adcionar Novo Documento', '#myModal', class: 'btn btn-primary btn-lg pull-right', 'data-toggle' => 'modal' %>
+    
     
   <table class="table table-bordered">
     <br>
