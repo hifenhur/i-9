@@ -11,7 +11,7 @@
 
 
 </table>
-<div class="span10">
+<div class="span12">
 <%= admin_link 'Adcionar Novo Documento', '#myModal', class: 'btn btn-primary ', 'data-toggle' => 'modal' %>
 </div>
 <% if @estudo.documents.count > 0 %>
@@ -20,13 +20,11 @@
     
     
   <table class="table table-bordered">
-    <br>
-    <br>
 
     <% @estudo.documents.each do |doc| %>
       <tr>
         <th><%= doc.name %></th>
-        <td><%= link_to('Download', doc.file.url) %></td>
+        <td><%= link_to(image_tag('download.png', width: 34), doc.file.url) %></td>
       </tr>
     <% end %>
 
@@ -43,7 +41,7 @@
       <tr>
         <th><%= survey.title %></th>
         <td><%= survey.description %></td>
-        <td><%= link_to('Gráficos', "/surveys/#{survey.id}") %></td>
+        <td><%= link_to(image_tag('stats_black.png', width: 34), "/surveys/#{survey.id}") %></td>
       </tr>
     <% end %>
 
