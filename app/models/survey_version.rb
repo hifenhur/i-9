@@ -20,6 +20,7 @@ class SurveyVersion < ActiveRecord::Base
 
  	def refresh_survey
  		begin
+ 			sleep 10
 			excel_file = Document.open_spreadsheet(self.file.url)
 			create_questions(excel_file)
 			create_answers(excel_file)
@@ -60,6 +61,7 @@ class SurveyVersion < ActiveRecord::Base
 		end
 		(3..@spreadsheet.last_row).each do |y|
 			#@row = Hash[[@header, @spreadsheet.row(y)].transpose]
+			
 			@spreadsheet.row(3).each_with_index do |r, i|
 				unless @spreadsheet.row(y)[i] == nil
 				   @question = Question.where('index <= ? and survey_version_id = ?', i, self.id).order('index').last
@@ -68,10 +70,14 @@ class SurveyVersion < ActiveRecord::Base
 				   else
 				     answer = Answer.create(answer: @spreadsheet.row(y)[i])
 				   end
-				   answer.question_id = @question.id
-				   answer.save!
+				   answer.question_id = @question.id 
+				   begin
+				   	answer.save!
+				   rescue
+				   end
 				end
 			end
+			
 		end
 	end
 end

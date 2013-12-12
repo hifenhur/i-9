@@ -73,3 +73,4 @@ class SurveyVersionsController < ApplicationController
       params.require(:survey_version).permit(:name, :survey_id, :description, :file)
     end
 end
+

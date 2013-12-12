@@ -44,6 +44,9 @@ gem 'mini_magick'
 
 group :development do
 	gem 'commands'
+  	gem "better_errors"
+  	gem "binding_of_caller"
+  	gem 'meta_request'
 end
 
 gem 'rack-cors'
@@ -54,3 +57,4 @@ gem 'carrierwave-dropbox'
 gem 'carrierwave-google_drive'
 #gem 'mercury-rails'
 #ruby '2.0.0'
+
