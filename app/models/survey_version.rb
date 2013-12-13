@@ -17,7 +17,7 @@ class SurveyVersion < ActiveRecord::Base
   has_many :questions
   has_one :document
   mount_uploader :file, DocumentUploader
-  after_save :refresh_survey
+  #after_save :refresh_survey
 
  	def refresh_survey 			
 			excel_file = Document.open_spreadsheet(self.file.url)

@@ -28,6 +28,7 @@ class SurveyVersionsController < ApplicationController
   def create
     @survey_version = SurveyVersion.new(survey_version_params)
     @survey_version.save
+    @survey_version.refresh_survey
     respond_to do |format|
         format.html { redirect_to @survey_version.survey, notice: 'A versão do Questionario foi criada com sucesso' }
         format.json { render action: 'show', status: :created, location: @survey_version }
@@ -39,6 +40,7 @@ class SurveyVersionsController < ApplicationController
   def update
     respond_to do |format|
       if @survey_version.update(survey_version_params)
+        @survey_version.refresh_survey
         format.html { redirect_to @survey_version, notice: 'A versão foi atualizada com sucesso' }
         format.json { head :no_content }
       else
