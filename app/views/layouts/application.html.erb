@@ -9,20 +9,23 @@
 <body>
 	<%= render partial:'/layouts/header' %>
 	<div class="row-fluid" id="big-wrapper">
-		<div class="lateral-menu span2">
-			<ul>
-				<% Estudo.all.each do |estudo| %>
-				<a href="/estudos/<%= estudo.id%>">
-					<li style="background: <%= estudo.buttom_color%>">
-						<h2><%= estudo.title %></h2>
-					</li>
-				</a>
-				<% end %>
-		    </ul>
-		</div>
 		
-		<div class="span10" id="wrapper">
-			<%= yield %>
+		
+		<div class="container" id="wrapper">
+			<div class="lateral-menu span2">
+				<ul>
+					<% Estudo.all.each do |estudo| %>
+					<a href="/estudos/<%= estudo.id%>">
+						<li style="background: <%= estudo.buttom_color%>">
+							<h2><%= estudo.title %></h2>
+						</li>
+					</a>
+					<% end %>
+			    </ul>
+			</div>
+			<div class="span10">
+				<%= yield %>
+			</div>
 		</div>
 	</div>
 	<footer id="footer">
