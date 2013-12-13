@@ -6,7 +6,7 @@
 </div>
 
 <div class="maps-home row-fluid">
-	<div class="span11">
+	<div class="span12">
 		<p>O Sistema de Informação Municipal de Saneamento é um projeto inovador que oferece a 
 
 		cidade de Portelândia um sistema de monitoramento regular da situação do saneamento.
@@ -28,16 +28,16 @@
 
 		fossem beneficiados.</p>
 	</div>
-	<div class="span4">
+	<div class="span5">
 		<h2>Ultimo Mapa</h2>
 		<%= render partial: '/maps/map', collection: Map.order('created_at').limit(1) %>
 	</div>
-	<div class="span7">
+	<div class="span6">
 		<h2>Ultimos Documentos</h2>
 		<table class="table">
 			<%@documents.each do |document|%>
 				<tr>
-					<td><%= document.created_at%></td>
+					<td><%= l document.created_at, format: :short if document.created_at%></td>
 					<td><%= link_to document.name, document.file.url%></td>
 				</tr>
 			<% end %>

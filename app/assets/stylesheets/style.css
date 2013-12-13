@@ -12,6 +12,9 @@ a:hover {
 .page-header {
     height: 79px;
 }
+h1 {
+    text-transform: inherit !important;
+}
 #logo {
     float: left;
 }
