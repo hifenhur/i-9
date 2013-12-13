@@ -6,7 +6,7 @@ class EstudosController < ApplicationController
   # GET /estudos
   # GET /estudos.json
   def index
-    @estudos = Estudo.all
+    @estudos = Estudo.paginate(page: params[:page], per_page: 6)
   end
 
   # GET /estudos/1

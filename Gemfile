@@ -42,6 +42,7 @@ gem 'roo'
 gem 'lazy_high_charts'
 gem 'chartkick'
 gem 'mini_magick'
+gem 'will_paginate'
 
 group :development do
 	gem 'commands'
