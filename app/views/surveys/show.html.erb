@@ -24,8 +24,8 @@
   <h2>Versão atual(v. <%= @last_survey_version.name  %>) </h2>
   <% @last_survey_version.questions.each do |question| %>
     <li class="question-li">
-      <a href="javascript:void(0)"><%= question.description %></a>
-      <div class="question-answers" style='display: none'>
+      <h2 style="color: green"><%= question.description %></h2>
+      <div class="question-answers" >
         <table class="table table-bordered" >
         <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
           <tr>

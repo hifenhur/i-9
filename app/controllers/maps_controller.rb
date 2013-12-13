@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MapsController < ApplicationController
   skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_map, only: [:show, :edit, :update, :destroy]

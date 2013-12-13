@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SurveyVersionsController < ApplicationController
   skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_survey_version, only: [:show, :edit, :update, :destroy]
@@ -26,15 +27,10 @@ class SurveyVersionsController < ApplicationController
   # POST /survey_versions.json
   def create
     @survey_version = SurveyVersion.new(survey_version_params)
-
+    @survey_version.save
     respond_to do |format|
-      if @survey_version.save
-        format.html { redirect_to @survey_version, notice: 'Survey version was successfully created.' }
+        format.html { redirect_to @survey_version.survey, notice: 'A versão do Questionario foi criada com sucesso' }
         format.json { render action: 'show', status: :created, location: @survey_version }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @survey_version.errors, status: :unprocessable_entity }
-      end
     end
   end
 
@@ -43,7 +39,7 @@ class SurveyVersionsController < ApplicationController
   def update
     respond_to do |format|
       if @survey_version.update(survey_version_params)
-        format.html { redirect_to @survey_version, notice: 'Survey version was successfully updated.' }
+        format.html { redirect_to @survey_version, notice: 'A versão foi atualizada com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,4 +69,3 @@ class SurveyVersionsController < ApplicationController
       params.require(:survey_version).permit(:name, :survey_id, :description, :file)
     end
 end
-

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EstudosController < ApplicationController
   skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_estudo, only: [:show, :edit, :update, :destroy]
@@ -30,7 +31,7 @@ class EstudosController < ApplicationController
 
     respond_to do |format|
       if @estudo.save
-        format.html { redirect_to @estudo, notice: 'Estudo was successfully created.' }
+        format.html { redirect_to @estudo, notice: 'O Estudo Foi criado' }
         format.json { render action: 'show', status: :created, location: @estudo }
       else
         format.html { render action: 'new' }

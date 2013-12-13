@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SurveysController < ApplicationController
   skip_before_filter :authenticate_user!, only:[:index, :show]
   before_action :set_survey, only: [:show, :edit, :update, :destroy]

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # == Schema Information
 #
 # Table name: survey_versions
@@ -18,15 +19,11 @@ class SurveyVersion < ActiveRecord::Base
   mount_uploader :file, DocumentUploader
   after_save :refresh_survey
 
- 	def refresh_survey
- 		begin
- 			sleep 10
+ 	def refresh_survey 			
 			excel_file = Document.open_spreadsheet(self.file.url)
 			create_questions(excel_file)
 			create_answers(excel_file)
-		rescue => e
-			
-		end
+		
 	end
 
 	def create_questions(excel_file)
@@ -37,16 +34,18 @@ class SurveyVersion < ActiveRecord::Base
 					@question.save!
 				end
 				@size = 1
+				
 				@question = Question.find_or_create_by(survey_version_id: self.id, description: row.to_str)
-				@question.index = i
-				@question.save!
+				
+				@question.index = i.to_i
+				@question.save
 			else
 				@size += 1
 			end
 		end
-		#@last_question = self.questions.last
-		#@last_question.cells = file.row(1).length - @last_question.index
-		#@last_question.save!
+		@last_question = self.questions.last
+		@last_question.cells = excel_file.row(1).length.to_i - @last_question.index.to_i
+		@last_question.save
 	end
 
 	def create_answers(excel_file)
@@ -71,10 +70,8 @@ class SurveyVersion < ActiveRecord::Base
 				     answer = Answer.create(answer: @spreadsheet.row(y)[i])
 				   end
 				   answer.question_id = @question.id 
-				   begin
-				   	answer.save!
-				   rescue
-				   end
+				   answer.save!
+				   
 				end
 			end
 			

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Inove::Application.routes.draw do
   
   resources :estudos do
