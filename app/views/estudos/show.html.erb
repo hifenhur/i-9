@@ -22,10 +22,12 @@
   <table class="table table-bordered">
 
     <% @estudo.documents.each do |doc| %>
-      <tr>
-        <th><%= doc.name %></th>
-        <td><%= link_to(image_tag('download.png', width: 34), doc.file.url) %></td>
-      </tr>
+      <% if doc.file.url %>
+          <tr>
+            <th><%= doc.name %></th>
+            <td><%= link_to(image_tag('download.png', width: 34), doc.file.url) %></td>
+          </tr>
+      <% end %>
     <% end %>
 
   </table>
