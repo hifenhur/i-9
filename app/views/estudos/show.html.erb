@@ -40,11 +40,25 @@
   <table class="table table-bordered">
 
     <% @estudo.surveys.each do |survey| %>
-      <tr>
-        <th><%= survey.title %></th>
-        <td><%= survey.description %></td>
-        <td><%= link_to(image_tag('stats_black.png', width: 34), "/surveys/#{survey.id}") %></td>
-      </tr>
+      <% if survey.survey_versions.count > 0 %>
+        <h2>Versão atual(v. <%= survey.survey_versions.last.name  %>) </h2>
+        <% survey.survey_versions.last.questions.each do |question| %>
+          <li class="question-li">
+            <h2 style="color: green"><%= question.description %></h2>
+            <div class="question-answers" >
+              <table class="table table-bordered" >
+              <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
+                <tr>
+                  <th><%= k %></th>
+                  <td><%= v %>%</td>
+                </tr>
+              <% end %>
+              </table>
+              <%= column_chart question.answers_count.sort_by{|k,v| v} %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
     <% end %>
 
 
