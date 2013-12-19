@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  estudo_id  :integer
+#  info       :text
 #
 
 # -*- encoding : utf-8 -*-
