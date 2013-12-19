@@ -1,7 +1,6 @@
 <tr>
+	<td><a href="<%= document.file %>"><%= image_tag "download.png", width: 22 %></a></td>
     <td><%= document.name %></td>
-    <td><%= document.created_at %></td>
-    <td><%= document.updated_at %></td>
-    <td><a href="<%= document.file %>">Download</a></td>
-  	<td><a href="/documents/<%= document.id %>">Ver</a></td>
+    <td><%= l document.created_at, format: :short if document.created_at %></td>
+    
   </tr>

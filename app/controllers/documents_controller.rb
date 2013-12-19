@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   # GET /documents.json
   def index
     @search = Document.search(params[:q])
-    @documents = @search.result
+    @documents = @search.result.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @documents }

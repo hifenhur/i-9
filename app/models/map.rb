@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # == Schema Information
 #
 # Table name: maps
@@ -8,8 +7,10 @@
 #  image      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  estudo_id  :integer
 #
 
+# -*- encoding : utf-8 -*-
 class Map < ActiveRecord::Base
 	mount_uploader :image, MapUploader
 	belongs_to :estudo

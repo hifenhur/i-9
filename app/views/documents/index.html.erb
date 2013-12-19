@@ -1,4 +1,4 @@
-<h1>Documentos</h1>
+<h1>Formularios</h1>
 
 <form data-remote="true" >
 	<input name="q[name_cont]" class="search pull-right" type"search" placeholder="Pesquisa" onkeyup="$('form').submit()">
@@ -9,15 +9,15 @@
 
 <table class="table bordered-table">
   <tr>
+  	<th>Download</th>
     <th>Nome</th>
-    <th>Criado</th>
-    <th>Atualizado</th>
+    <th>Criado em</th>
   </tr>
 
 	<%= render @documents %>
 
 </table>
-
+<%= will_paginate @documents %>
 <br />
 
 <%= admin_link 'Novo Documento', new_document_path %>

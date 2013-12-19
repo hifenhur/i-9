@@ -12,9 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title, (t 'title') %>
-    <%= f.text_field :title %>
+    <%= f.label :anexo, (t 'Estudo em PDF') %>
+    <%= f.file_field :anexo %>
   </div>
+
+  <div class="field">
+    <%= f.label :title, (t 'title') %>
+    <%= f.text_field :title, required: "required" %>
+  </div>
+  
   <div class="field">
     <%= f.label :image, (t 'image') %>
     <%= f.file_field :image %>
@@ -22,7 +28,7 @@
   <br>
   <div class="field">
     <%= f.label :description, (t 'description') %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, required: "required" %>
   </div>
   <div class="field">
     <%= f.label :buttom_color, (t 'buttom_color') %>
