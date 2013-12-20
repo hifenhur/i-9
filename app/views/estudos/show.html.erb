@@ -35,6 +35,19 @@
   </fieldset>
 <% end %>
 <br>
+
+<% if @estudo.maps.count > 0 %>
+  <fieldset>
+    <legend>Mapas</legend>
+
+
+    <%= render @estudo.maps %>
+
+
+
+  </fieldset>
+<% end %>
+<br>
 <% if @estudo.surveys.count > 0 %>
   <fieldset>
     <legend>Questionarios</legend>
@@ -68,17 +81,6 @@
   
 <% end %>
 
-<% if @estudo.maps.count > 0 %>
-  <fieldset>
-    <legend>Mapas</legend>
-
-
-    <%= render @estudo.maps %>
-
-
-
-  </fieldset>
-<% end %>
 <%= admin_link (t 'Edit'), edit_estudo_path(@estudo) %> 
 <%= admin_link (t 'Back'), estudos_path %>
 

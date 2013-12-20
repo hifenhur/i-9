@@ -72,7 +72,7 @@ class MapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
-      params.require(:map).permit(:name, :image)
+      params.require(:map).permit(:name, :image, :info)
     end
 
     def set_points_cookie
