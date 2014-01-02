@@ -21,5 +21,7 @@ class Survey < ActiveRecord::Base
 	mount_uploader :file, DocumentUploader
 	accepts_nested_attributes_for  :document
 
-	
+	def to_s
+		title
+	end
 end

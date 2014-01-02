@@ -48,12 +48,16 @@
   </fieldset>
 <% end %>
 <br>
+<div class="span12">
+  <%= admin_link 'Adcionar Novo Documento', '/surveys/new', class: 'btn btn-primary '%>
+</div>
 <% if @estudo.surveys.count > 0 %>
   <fieldset>
     <legend>Questionarios</legend>
   <table class="table table-bordered">
 
     <% @estudo.surveys.each do |survey| %>
+      <%= admin_link "Editar #{survey}", edit_survey_path(survey), class: 'btn btn-primary ', style: 'margin-left: 2px' %>
       <% if survey.survey_versions.count > 0 %>
         <h2>Versão atual(v. <%= survey.survey_versions.last.name  %>) </h2>
         <% survey.survey_versions.last.questions.each do |question| %>
