@@ -118,6 +118,8 @@
         </div>
         <div class="modal-body">
 
+         
+
           <form action="/maps/<%= @map.id %>/points.js" method="post" data-remote="true" enctype="multipart/form-data">
             <input type="text" name="point[longitude]" editable="false" class="longitude">
             <input type="text" name="point[latitude]" editable="false" class="latitude">
@@ -130,11 +132,6 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
           <button type="submit" class="btn btn-primary submit-form">Criar Ponto</button>
         </div>
-        <script>
-          $(function () {
-              $('form').fileupload();
-          });
-          </script>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->

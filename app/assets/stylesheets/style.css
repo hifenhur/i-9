@@ -324,3 +324,7 @@ color: white;
 .nav-ico {
 width: 25px;
 }
+
+.popup img {
+width: 280px !important;
+}
