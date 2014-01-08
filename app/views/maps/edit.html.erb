@@ -120,7 +120,7 @@
 
          
 
-          <form action="/maps/<%= @map.id %>/points.js" method="post" data-remote="true" enctype="multipart/form-data">
+          <form id="point_submit" action="/maps/<%= @map.id %>/points.js" method="post" data-remote="true" enctype="multipart/form-data">
             <input type="text" name="point[longitude]" editable="false" class="longitude">
             <input type="text" name="point[latitude]" editable="false" class="latitude">
             <input type="hidden" name="point[map_id]" id="point-id" value='<%= @map.id%>'>
@@ -138,7 +138,7 @@
 
 <script type="text/javascript">
 $('.submit-form').click(function(){
-  $('form').submit();
+  $('#point_submit').submit();
 })
 
 </script>
