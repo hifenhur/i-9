@@ -250,9 +250,7 @@ transition: 0.3s all ease;
     color: black;
     font-size: 16px;
 }
-a, h1, h2, h3{
-    text-transform: uppercase;
-}
+
 
 .lateral-menu.span2 {
     text-align: center;
