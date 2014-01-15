@@ -13,10 +13,10 @@
 
   <div class="field">
     <%= f.label :name, "Nome" %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: 'require' %>
   </div>
   <div class="field">
-    <%= f.file_field :file, placeholder: "Arquivo"%>
+    <%= f.file_field :file, placeholder: "Arquivo", required: 'require'%>
   </div>
   <br>
   <br>

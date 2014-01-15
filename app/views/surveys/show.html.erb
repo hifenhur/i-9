@@ -21,7 +21,7 @@
   <%= @survey.description %>
 </p>
 <% if @last_survey_version %>
-  <h2>Versão atual(v. <%= @last_survey_version.name  %>) </h2>
+  <h2>ultima atualização: <%= l @last_survey_version.created_at, format: :short  %> </h2>
   <% @last_survey_version.questions.each do |question| %>
     <li class="question-li">
       <h2 style="color: green"><%= question.description %></h2>

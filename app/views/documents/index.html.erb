@@ -12,6 +12,9 @@
   	<th>Download</th>
     <th>Nome</th>
     <th>Criado em</th>
+    <% if current_user %>
+    	<th></th>
+    <% end %>
   </tr>
 
 	<%= render @documents %>

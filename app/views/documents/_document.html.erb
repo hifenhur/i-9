@@ -2,5 +2,8 @@
 	<td><a href="<%= document.file %>"><%= image_tag "download.png", width: 22 %></a></td>
     <td><%= document.name %></td>
     <td><%= l document.created_at, format: :short if document.created_at %></td>
+    <% if current_user %>
+    	<td><%= link_to 'deletar', document_path(document), method:'delete', confirm: "deseja deletar o documento '#{document.name}'" %></td>
+    <% end %>
     
   </tr>

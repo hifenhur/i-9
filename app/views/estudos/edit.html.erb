@@ -1,6 +1,9 @@
+<div class="pull-right">
+	<%= link_to 'Ver', @estudo, class: 'btn btn-primary' %> |
+	<%= link_to 'Voltar', estudos_path, class: 'btn btn-primary' %>
+</div>
 <h1><%= @estudo %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Ver', @estudo %> |
-<%= link_to 'Voltar', estudos_path %>
+

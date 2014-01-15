@@ -1,9 +1,16 @@
 <div class="span12">
   <p id="notice"><%= notice %></p>
+<div class="pull-right">
+  <%= admin_link (t 'Edit'), edit_estudo_path(@estudo) %> 
+  <%= link_to (t 'Back'), estudos_path, class: 'btn btn-primary' %>
+</div>
+<h1><%= @estudo %></h1>
+<% unless @estudo.anexo %>
+  <p>disponivel para download clicando <a href="<%= @estudo.anexo %>" title="baixe o estudo em PDF">aqui</a></p>
 
-
+<% end %>
+<br>  
 <table class="table table-hover table-bordered">
-  <h1><%= @estudo %></h1>
 
   <tr>
     <th><%= (t 'description') %></th>
@@ -13,7 +20,9 @@
 
 </table>
 <div class="span12">
+  <div class="pull-right">
 <%= admin_link 'Adcionar Novo Documento', '#myModal', class: 'btn btn-primary ', 'data-toggle' => 'modal' %>
+</div>
 </div>
 <% if @estudo.documents.count > 0 %>
   <fieldset>
@@ -49,7 +58,9 @@
 <% end %>
 <br>
 <div class="span12">
+  <div class="pull-right">
   <%= admin_link 'Adcionar Novo Questionario', '/surveys/new', class: 'btn btn-primary '%>
+</div>
 </div>
 <% if @estudo.surveys.count > 0 %>
   <fieldset>
@@ -57,13 +68,16 @@
   <table class="table table-bordered">
 
     <% @estudo.surveys.each do |survey| %>
+    <div class="pull-right">
       <%= admin_link "Editar #{survey}", edit_survey_path(survey), class: 'btn btn-primary ', style: 'margin-left: 2px' %>
+    </div>
       <% if survey.survey_versions.count > 0 %>
-        <h2>Versão atual(v. <%= survey.survey_versions.last.name  %>) </h2>
+        <h2>ultima atualização <%= l survey.created_at, format: :short  %> </h2>
         <% survey.survey_versions.last.questions.each do |question| %>
           <li class="question-li">
             <h2 style="color: green"><%= question.description %></h2>
             <div class="question-answers" >
+              <%= column_chart question.answers_count.sort_by{|k,v| v} %>
               <table class="table table-bordered" >
               <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
                 <tr>
@@ -72,7 +86,7 @@
                 </tr>
               <% end %>
               </table>
-              <%= column_chart question.answers_count.sort_by{|k,v| v} %>
+              
             </div>
           </li>
         <% end %>
@@ -84,9 +98,6 @@
   </fieldset>
   
 <% end %>
-
-<%= admin_link (t 'Edit'), edit_estudo_path(@estudo) %> 
-<%= admin_link (t 'Back'), estudos_path %>
 
 
 
@@ -113,14 +124,14 @@
 
             <div class="field">
               <%= f.label :name, (t 'name') %>
-              <%= f.text_field :name %>
+              <%= f.text_field :name, required: 'require' %>
             </div>
             <div class="field">
               <%= f.hidden_field :estudo_id %>
             </div>
             <div class="field">
               <%= f.label :file, (t 'file') %>
-              <%= f.file_field :file %>
+              <%= f.file_field :file, required: 'require' %>
             </div>
           <% end %>
         </div>

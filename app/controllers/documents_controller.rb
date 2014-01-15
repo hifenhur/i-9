@@ -46,8 +46,13 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document.estudo, notice: 'Document was successfully created.' }
-        format.json { render json: @document, status: :created, location: @document }
+        if @document.estudo_id
+          format.html { redirect_to @document.estudo, notice: 'o Documento foi criado com sucesso' }  
+        else
+          format.html { redirect_to documents_url, notice: 'o Documento foi criado com sucesso' }  
+        end
+        
+        
       else
         format.html { render action: "new" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
