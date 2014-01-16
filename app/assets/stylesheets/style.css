@@ -239,7 +239,6 @@ transition: 0.3s all ease;
 .question-li {
     border-top: 1px solid;
     margin: 10px;
-    text-transform: uppercase;
 }
 .question-li a{
     color: grey;
