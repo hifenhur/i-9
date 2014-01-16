@@ -22,6 +22,14 @@ class PointsController < ApplicationController
     end
   end
 
+  def destroy
+    @point = Point.find(params[:id])
+    @map = @point.map
+    if @point.delete
+        redirect_to edit_map_path(@map)
+    end
+  end
+
 
   def point_params
     params.require(:point).permit(:longitude, :latitude, :map_id, :title, :map_id, :image)

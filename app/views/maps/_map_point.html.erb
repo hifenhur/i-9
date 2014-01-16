@@ -1,10 +1,11 @@
+<script type="text/javascript">
 var geoJson = [
 <%@map.points.each do |point|%>
 {
     type: 'Feature',
     "geometry": { "type": "Point", "coordinates": [<%= point.longitude %>, <%= point.latitude %>]},
     "properties": {
-        "id": "<%= point.id%>",
+        "id": "<%= point.id %>",
         "image": "<%= point.image%>",
         "thumb": "<%= point.image.thumb%>",
         "marker-symbol": "star",
@@ -20,14 +21,14 @@ map.markerLayer.on('layeradd', function(e) {
     feature = marker.feature;
 
     // Create custom popup content
-    '<a title="'+feature.properties.title+'" class="popup" href="' + feature.properties.image + '">' +
+    var popupContent =  '<a title="'+feature.properties.title+'" class="popup" href="' + feature.properties.image + '">' +
                             '<img src="' + feature.properties.thumb + '">' +
                         '   <h2>' + feature.properties.title + '</h2>' +
                         <% if current_user %>
-                            '<a data-method="delete"'+
+                            '<a data-method="delete" '+
                             ' href="/maps/<%= @map.id %>/points/'+feature.properties.id+'" >deletar</a>' +    
                         <% end %>
-                        '</a>'
+                        '</a>';
 
     // http://leafletjs.com/reference.html#popup
     marker.bindPopup(popupContent,{
@@ -49,6 +50,6 @@ $(".popup").fancybox({
         }
     }
 });
-map.markerLayer.setGeoJSON(geoJson);
-map.removeLayer(actual_point);
-$('.close').click();
+</script>
+
+
