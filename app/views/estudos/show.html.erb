@@ -1,3 +1,40 @@
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<%
+Chartkick.options = {
+ 
+}
+%>
+
+<script type="text/javascript">
+Highcharts.setOptions({
+      lang: {
+            loading: 'Aguarde...',
+            months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+            shortMonths: ['Jan', 'Feb', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            exportButtonTitle: "Exportar",
+            printButtonTitle: "Imprimir",
+            rangeSelectorFrom: "De",
+            rangeSelectorTo: "Até",
+            rangeSelectorZoom: "Periodo",
+            downloadPNG: 'Download imagem PNG',
+            downloadJPEG: 'Download imagem JPEG',
+            downloadPDF: 'Download documento PDF',
+            downloadSVG: 'Download imagem SVG'
+            // resetZoom: "Reset",
+            // resetZoomTitle: "Reset,
+            // thousandsSep: ".",
+            // decimalPoint: ','
+            },
+      series: {
+                 pointWidth: 20
+             }
+
+});
+</script>
+
+
 <div class="span12">
   <p id="notice"><%= notice %></p>
 <div class="pull-right">
@@ -77,16 +114,12 @@
           <li class="question-li">
             <h2 style="color: green"><%= question.description %></h2>
             <div class="question-answers" >
-              <%= column_chart question.answers_count.sort_by{|k,v| v} %>
-              <table class="table table-bordered" >
-              <% question.answers_count.sort_by{|k,v| v}.each do |k, v| %>
-                <tr>
-                  <th><%= k %></th>
-                  <td><%= v %>%</td>
-                </tr>
-              <% end %>
-              </table>
-              
+            <%debugger%>
+              <%= column_chart question.answers_count, library: {plotOptions: {
+          series: {
+              pointWidth: 50
+          }
+      }}%>
             </div>
           </li>
         <% end %>

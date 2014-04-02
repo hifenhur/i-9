@@ -8,3 +8,12 @@ development:
   reconnect: true
   host: localhost
 
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: inove_test
+  pool: 5
+  username: postgres
+  password: numero04
+  reconnect: true
+  host: localhost

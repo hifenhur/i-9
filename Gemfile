@@ -57,6 +57,16 @@ gem 'remotipart'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'carrierwave-dropbox'
 gem 'carrierwave-google_drive'
+
+group :test do 
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'poltergeist'
+end
+
+gem 'spork', '~> 1.0rc'
+gem 'yaml_db'
+
 #gem 'mercury-rails'
 #ruby '2.0.0'
 

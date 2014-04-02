@@ -15,7 +15,7 @@
 				<ul>
 					<% Estudo.all.each do |estudo| %>
 					<a href="/estudos/<%= estudo.id%>">
-						<li style="background: <%= estudo.buttom_color%>">
+						<li style="background: <%= estudo.buttom_color%>; background-image: url(<%= estudo.button_img%>); background-repeat: no-repeat; ">
 							<h2><%= estudo.title %></h2>
 						</li>
 					</a>

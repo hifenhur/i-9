@@ -17,6 +17,7 @@
 class Estudo < ActiveRecord::Base
 	mount_uploader :image, MapUploader
 	mount_uploader :anexo, AnexoUploader
+	mount_uploader :button_img, ButtonImgUploader
 	has_many :maps
 	has_many :surveys
 	has_many :documents

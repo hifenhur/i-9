@@ -1,3 +1,6 @@
+.funcionario-img{
+    width: 190px !important;
+}
 .left-board-map{
     position: fixed;
     z-index: 9999;
