@@ -16,4 +16,6 @@
 class Point < ActiveRecord::Base
   mount_uploader :image, MapUploader
   belongs_to :map
+
+  default_scope {where(accepted: true)}
 end

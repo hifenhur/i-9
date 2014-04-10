@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327003248) do
+ActiveRecord::Schema.define(version: 20140410001223) do
 
   create_table "answers", force: true do |t|
     t.string   "answer"
@@ -68,6 +68,9 @@ ActiveRecord::Schema.define(version: 20140327003248) do
     t.datetime "updated_at"
     t.float    "longitude"
     t.float    "latitude"
+    t.boolean  "accepted"
+    t.text     "description"
+    t.string   "ip"
   end
 
   add_index "points", ["map_id"], name: "index_points_on_map_id", using: :btree

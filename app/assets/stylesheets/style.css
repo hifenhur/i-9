@@ -328,3 +328,29 @@ width: 25px;
 .popup img {
 width: 280px !important;
 }
+.map-tools {
+position: absolute;
+z-index: 999999999;
+left: 10px;
+top: 142px;
+border-radius: 3px;
+border: 1px solid;
+padding: 2px;
+}
+
+.map-tools a{
+padding: 4px;
+color: #404040;
+color: rgba(0,0,0,0.75);
+border: 1px solid #ddd;
+border-color: rgba(0,0,0,0.10);
+}
+.map-tools a {
+color: #404040;
+color: rgba(0,0,0,0.75);
+border: 1px solid #ddd;
+border-color: rgba(0,0,0,0.10);
+width: 32px !important;
+overflow: hidden;
+display: block;
+}

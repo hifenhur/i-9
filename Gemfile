@@ -65,7 +65,9 @@ group :test do
 end
 
 gem 'spork', '~> 1.0rc'
-gem 'yaml_db'
+gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
+gem 'selenium-webdriver'
+gem "twitter-bootstrap-rails"
 
 #gem 'mercury-rails'
 #ruby '2.0.0'

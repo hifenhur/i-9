@@ -2,6 +2,11 @@
 class PointsController < ApplicationController
   skip_before_filter :authenticate_user!
 
+  def index
+    @map = Map.find(params[:map_id])
+    @points = @map.points.unscoped
+  end
+
   def create
     @point = Point.new(point_params)
     @map = Map.find(point_params[:map_id])
@@ -28,6 +33,11 @@ class PointsController < ApplicationController
     if @point.delete
         redirect_to edit_map_path(@map)
     end
+  end
+
+  def edit
+    @map = Map.find(params[:map_id])
+    @point = @map.points.unscoped.find(params[:id])
   end
 
 

@@ -11,6 +11,7 @@
   </style>
 </head>
 <body>
+<div class="map-tools"><a href="#" id="new_marker" title="Adcione Um ponto"><img src="/assets/marker-plus.png"></a></div>
 <div id='map'></div>
 <script>
 var map = L.mapbox.map('map', 'hifenhur.gb2cc0e3').setView([0.004913806909266322, 0.006780624389648437], 17);
@@ -19,3 +20,52 @@ var map = L.mapbox.map('map', 'hifenhur.gb2cc0e3').setView([0.004913806909266322
 </html>
 
 <%= render partial: 'map_point' %>
+
+<script type="text/javascript">
+	$('#new_marker').click(function(){
+		$('#new_point').remove()
+		$('#map').append("<img src='/assets/marker-plus.png' id='new_point' style='position: absolute' width='35'>")
+	})
+
+	$("body").mousemove(function(e) {
+    	$('#new_point').css({top: e.pageY-95, left: e.pageX-20})
+	})
+	map.on('click', function(e) {
+		if ($('#new_point').is(Object)) {
+			$('.longitude').val(e.latlng.lng);
+			$('.latitude').val(e.latlng.lat);
+			$('.modal').modal('toggle')
+		};
+		
+	});
+
+
+</script>
+
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Escolher Imagem</h4>
+        </div>
+        <div class="modal-body">
+
+         
+
+          <form id="point_submit" action="/maps/<%= @map.id %>/points.js" method="post" data-remote="true" enctype="multipart/form-data">
+            <input type="text" name="point[longitude]" editable="false" class="longitude">
+            <input type="text" name="point[latitude]" editable="false" class="latitude">
+            <input type="hidden" name="point[map_id]" id="point-id" value='<%= @map.id%>'>
+            <input type="text" placeholder="titulo" name="point[title]">
+            <input id="fileupload" type="file" name="point[image]" data-url="/point/images" multiple>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary submit-form">Criar Ponto</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
