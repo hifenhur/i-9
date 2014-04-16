@@ -10,8 +10,11 @@ class PointsController < ApplicationController
   def create
     @point = Point.new(point_params)
     @map = Map.find(point_params[:map_id])
+    debugger
+    @point.ip = request.ip
     if @point.save
       respond_to do |format|
+        format.html{ redirect_to map_path(@point.map), notice: "Ponto criado com sucesso, aguarde até que seja aprovado para visualização"}
         format.js
       end
     end
@@ -42,7 +45,7 @@ class PointsController < ApplicationController
 
 
   def point_params
-    params.require(:point).permit(:longitude, :latitude, :map_id, :title, :map_id, :image)
+    params.require(:point).permit(:longitude, :latitude, :map_id, :title, :image, :description)
   end
 
 end

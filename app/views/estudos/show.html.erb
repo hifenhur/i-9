@@ -41,7 +41,7 @@ Highcharts.setOptions({
   <%= admin_link (t 'Edit'), edit_estudo_path(@estudo) %> 
   <%= link_to (t 'Back'), estudos_path, class: 'btn btn-primary' %>
 </div>
-<h1><%= @estudo %></h1>
+<h1 id="estudo_title" style="background-img: url(<%= @estudo.img_title%>); background-repeat: none; background-color: <%= @estudo.buttom_color %>"><%= @estudo %></h1>
 <% unless @estudo.anexo %>
   <p>disponivel para download clicando <a href="<%= @estudo.anexo %>" title="baixe o estudo em PDF">aqui</a></p>
 

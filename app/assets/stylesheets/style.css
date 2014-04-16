@@ -354,3 +354,6 @@ width: 32px !important;
 overflow: hidden;
 display: block;
 }
+#estudo_title {
+    padding: 18px;
+}
