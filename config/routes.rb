@@ -23,5 +23,7 @@ Inove::Application.routes.draw do
   resources :maps do
   	resources :points
   end
+
+  resources :points, only: :index
   root to: 'home#index'
 end

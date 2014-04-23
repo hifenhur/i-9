@@ -1,20 +1,20 @@
 # -*- encoding : utf-8 -*-
 class PointsController < ApplicationController
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, except: [:index, :edit, :destroy, :update]
 
   def index
-    @map = Map.find(params[:map_id])
-    @points = @map.points.unscoped
+    @points = Point.unscoped
   end
 
   def create
     @point = Point.new(point_params)
     @map = Map.find(point_params[:map_id])
-    debugger
+    @point.accepted = false
     @point.ip = request.ip
-    if @point.save
-      respond_to do |format|
-        format.html{ redirect_to map_path(@point.map), notice: "Ponto criado com sucesso, aguarde até que seja aprovado para visualização"}
+    respond_to do |format|
+      if @point.save
+        format.html{redirect_to @map, alert: "O ponto foi criado com sucesso, e passará por avaliação,
+         logo logo estará disponivel no mapa, obrigado pela cooperação" }
         format.js
       end
     end
@@ -43,6 +43,18 @@ class PointsController < ApplicationController
     @point = @map.points.unscoped.find(params[:id])
   end
 
+  def update
+    @point = Point.unscoped.find(params[:id])
+    respond_to do |format|
+      if @point.update(point_params)
+        format.html { redirect_to @point.map, notice: 'O Ponto foi atualizado com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @point.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def point_params
     params.require(:point).permit(:longitude, :latitude, :map_id, :title, :image, :description)

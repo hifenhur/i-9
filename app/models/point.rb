@@ -18,4 +18,6 @@ class Point < ActiveRecord::Base
   belongs_to :map
 
   default_scope {where(accepted: true)}
+
+  
 end

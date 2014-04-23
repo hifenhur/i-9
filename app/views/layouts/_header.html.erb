@@ -40,6 +40,15 @@
                   Equipe
                 </a> 
               </li>
+
+              <%if current_user%>
+                 <li id="points">
+                    <a href="/points">
+                      <img class="nav-ico" src="/assets/map.png">
+                      Marcadores
+                    </a> 
+                  </li>
+              <% end %>
             </ul>
           </div>
           <ul class="nav pull-right visible-desktop">
